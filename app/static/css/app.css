@@ -14,9 +14,7 @@ footer  {
 }
 
 .card {
-    padding: 50px;
     box-shadow: 2px 2px 5px 2px #DCDCDC		;
     border-top: solid #007bff 5px;
-    margin-bottom: 25px;
     border-radius: 10px;
 }
