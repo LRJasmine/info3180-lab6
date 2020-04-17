@@ -30,22 +30,37 @@ Vue.component('news-list', {
     template: `
     <div class="news">
         <h2>News</h2>
-        <ul class="news__list">
-            <li class="news__item">News item 1</li>
-            <li class="news__item">News item 2</li>
-            <li class="news__item">News item 3</li>
-        </ul>
+        <div class="news__item">
+            <div v-for="article in articles" class="news__item card">
+                <div class="card-body">
+                    <h4 class="card-title"> {{ article.title }} </h4>
+                    <p class="card-text text-center text-muted">
+                        <img :src="article.urlToImage" class="card-img-top"/>
+                    </p>
+                    <p class="card-text">{{ article.description }}</p>
+                </div>
+            <div/>
+        </div>
+        
     </div>
     `,
      created: function() {
-         fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=<your-api-key>')
+         let self = this;
+         
+         fetch('https://newsapi.org/v2/top-headlines?country=us&apiKey=<your-key>')
             .then(function(response) {
                 return response.json();
             })
             .then(function(data) {
+                self.articles = data.articles;
                 console.log(data);
             });
-     } 
+     },
+     data: function() {
+         return{
+             articles: []
+         }
+     }
 });
 
 

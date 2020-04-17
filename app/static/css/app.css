@@ -5,3 +5,18 @@ body {
 footer  {
     padding-top: 20px;
 }
+
+
+.news__item {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-gap: 20px;
+}
+
+.card {
+    padding: 50px;
+    box-shadow: 2px 2px 5px 2px #DCDCDC		;
+    border-top: solid #007bff 5px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+}
